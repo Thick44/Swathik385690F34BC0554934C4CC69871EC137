@@ -1,32 +1,24 @@
-# Python program to create Bankaccount class
-# with both a deposit() and a withdraw() function
-class Bank_Account:
-    def __init__(self):
-        self.balance=0
-        print("Hello!!! Welcome to the Deposit & Withdrawal Machine")
+# 1.1 implement a recursive function to calculate the factorial of a given number
  
-    def deposit(self):
-        amount=float(input("Enter amount to be Deposited: "))
-        self.balance += amount
-        print("\n Amount Deposited:",amount)
+""" of a given number
+1! = 1 x 1
+2 ! = 2 x 1 ! ---> 2 x 1 
+3! = 3 x 2 ! ---> 3 x 2 x 1
+
+
+10 ! =10 x 9! ---> 10 x 9 x 8 x .. . x
+
+ formula - n x (n-1)!
+"""
  
-    def withdraw(self):
-        amount = float(input("Enter amount to be Withdrawn: "))
-        if self.balance>=amount:
-            self.balance-=amount
-            print("\n You Withdrew:", amount)
-        else:
-            print("\n Insufficient balance  ")
+
+def fact_rec(n): 
+  if n==0 or n==1:
+    return 1 
+  else:
+    return n*fact_rec(n-1) 
  
-    def display(self):
-        print("\n Net Available Balance=",self.balance)
- 
-# Driver code
-  
-# creating an object of class
-s = Bank_Account()
-  
-# Calling functions with that class object
-s.deposit()
-s.withdraw()
-s.display()
+number = int ( input("Enter a value:")) 
+res = fact_rec( number)
+
+print("The factorial of {} is {}.". format(number,res))
